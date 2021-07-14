@@ -23,3 +23,10 @@
                     "__AVR_ATmega32__"
                 ],
     ```
+# Configuration
+
+- <code>DEVICE</code> determine the microcontroller used.
+- <code>PORT</code> flag to set the arduino port when uploading with arduino programmer.
+    ```
+    make upload_arduino PORT=COM6
+    ```
