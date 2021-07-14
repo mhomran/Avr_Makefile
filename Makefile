@@ -1,19 +1,19 @@
-DEVICE 			:= atmega32
+DEVICE      := atmega32
 
-BUILD_DIR 	:= build
-SRC_DIR 		:= src
+BUILD_DIR   := build
+SRC_DIR     := src
 
-SRCS 				:= $(shell find $(SRC_DIR) -name "*.c")
-OBJS 				:= $(SRCS:%=$(BUILD_DIR)/%.o)
+SRCS        := $(shell find $(SRC_DIR) -name "*.c")
+OBJS        := $(SRCS:%=$(BUILD_DIR)/%.o)
 INC_DIRS    := $(shell find $(SRC_DIR) -type d)
 INC_FLAGS   := $(addprefix -I,$(INC_DIRS))
 
-TARGET 			:= output
-CC 		 			:= avr-gcc
-OBJCOPY			:= avr-objcopy
-SIZE 				:= avr-size
-CFLAGS 			:= -Wall -Os -mmcu=${DEVICE} -std=c99 ${INC_FLAGS}
-LFLAGS			:= -nostdlib -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
+TARGET      := output
+CC          := avr-gcc
+OBJCOPY     := avr-objcopy
+SIZE        := avr-size
+CFLAGS      := -Wall -Os -mmcu=${DEVICE} -std=c99 ${INC_FLAGS}
+LFLAGS      := -nostdlib -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
 
 
 $(BUILD_DIR)/$(TARGET): $(OBJS)
