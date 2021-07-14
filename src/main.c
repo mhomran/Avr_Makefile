@@ -1,4 +1,3 @@
-#define __AVR_ATmega328P__
 #include <avr/io.h>
 
 #define ON_BOARD_LED_PIN  5

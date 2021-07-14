@@ -18,8 +18,8 @@ LFLAGS      := -nostdlib -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
 
 $(BUILD_DIR)/$(TARGET): $(OBJS)
 	$(CC) $(OBJS) $(LFLAGS) -o $@.elf
-	avr-objcopy -j .text -j .data -O ihex $@.elf $@.hex
-	avr-size --format=avr --mcu=${DEVICE} $@.elf
+	$(OBJCOPY) -j .text -j .data -O ihex $@.elf $@.hex
+	$(SIZE) --format=avr --mcu=${DEVICE} $@.elf
 
 $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)
